@@ -5,18 +5,19 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = Example.class)
-public class ExampleTest {
+@SpringBootTest
+public class ApplicationTest {
 
     @Autowired
     UserService userService;
 
     @Test
-    public void di() {
+    public void testDI() {
         Assert.assertNotNull(userService);
+        Assert.assertNotNull(userService.getUserRepository());
     }
 }
