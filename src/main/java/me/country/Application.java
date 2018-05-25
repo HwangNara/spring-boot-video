@@ -2,15 +2,16 @@ package me.country;
 
 import me.country.hello.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
 public class Application {
-
 
     @Autowired
     HelloService helloService;
@@ -21,7 +22,13 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication application = new SpringApplication(Application.class);
+        application.setBanner(new MyBanner());
+        application.setBannerMode(Banner.Mode.OFF);
+        application.addListeners(new MyListener());
+        application.run(args);
+
+//        SpringApplication.run(Application.class, args);
     }
 }
 
