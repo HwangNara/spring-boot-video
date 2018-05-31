@@ -1,0 +1,38 @@
+country:
+  name: nara YAML
+  list:
+    - name: my name
+      descr: my description
+    - name: my name2
+      descr: my description2
+---
+spring:
+  profiles: default
+country:
+  name: nara Default
+  list:
+    - name: my name
+      descr: my description
+    - name: my name2
+      descr: my description2
+---
+spring:
+  profiles: prod
+country:
+  name: nara prod
+  list:
+    - name: my name
+      descr: my description
+    - name: my name2
+      descr: my description12
+    - name: my name3
+      descr: my description13
+---
+spring:
+  profiles: dev
+country:
+  name: nara dev
+  list:
+    - name: my name
+      descr: my description
+---

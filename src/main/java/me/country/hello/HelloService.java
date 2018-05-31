@@ -1,15 +1,15 @@
 package me.country.hello;
 
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class HelloService {
 
-    @Value("${name}")
-    private String name;
+    @Autowired
+    CountryProperties countryProperties;
 
     public String getMessage() {
-        return "Hello, " + name;
+        return "Hello, " + countryProperties.getName() + " " + countryProperties.getList().size();
     }
 }
