@@ -2,8 +2,8 @@ package me.country;
 
 import me.country.hello.CountryProperties;
 import me.country.hello.HelloService;
+import me.country.hello.MyBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -21,6 +21,9 @@ public class Application {
     HelloService helloService;
 
     @Autowired
+    MyBean myBean;
+
+    @Autowired
     Environment environment;
 
     @Bean
@@ -32,14 +35,12 @@ public class Application {
 
     @RequestMapping("/")
     public String hello() {
-        System.out.println(countryProperties().getNumber2());
+        System.out.println(myBean.getMessage());
         return helloService.getMessage();
     }
 
     public static void main(String[] args) {
         SpringApplication application = new SpringApplication(Application.class);
-        application.setBanner(new MyBanner());
-        application.setBannerMode(Banner.Mode.OFF);
         application.addListeners(new MyListener());
         application.run(args);
 
