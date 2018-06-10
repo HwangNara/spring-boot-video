@@ -16,4 +16,14 @@ public class UserController {
         converters.getConverters().forEach(c -> System.out.println(c.getClass()));
         return "Hello Spring MVC";
     }
+
+    @GetMapping("/user")
+    public User currentUser() {
+        User user = new User();
+        user.setAge(20);
+        user.setName("country");
+        user.setHeight(170);
+        return user;
+    }
+
 }
