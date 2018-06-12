@@ -11,11 +11,11 @@ public class UserController {
     @Autowired
     HttpMessageConverters converters;
 
-    @GetMapping("/")
-    public String index() {
-        converters.getConverters().forEach(c -> System.out.println(c.getClass()));
-        return "Hello Spring MVC";
-    }
+//    @GetMapping("/")
+//    public String index() {
+//        converters.getConverters().forEach(c -> System.out.println(c.getClass()));
+//        return "Hello Spring MVC";
+//    }
 
     @GetMapping("/user")
     public User currentUser() {
